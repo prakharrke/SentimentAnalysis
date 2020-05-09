@@ -29,9 +29,9 @@ from sqlalchemy import create_engine
 
 def load_data(database_filepath):
     '''
-    Fucntion to load the database from the given filepath and process them as X, y and category_names
+    Fucntion to load the database from the given filepath and process them as X_train, y_train, X_test, y_test
     Input: Databased filepath
-    Output: Returns the Features X & target y along with target columns names catgeory_names
+    Output: Returns the Features X_train, y_train, X_test, y_test
     '''
     engine = create_engine('sqlite:///' + database_filepath)
     df_train = pd.read_sql_table('reviews_train', engine)
@@ -92,8 +92,8 @@ def build_model():
 
 def evaluate_model(model, X_test, y_test):
     '''
-    Function to evaluate a model and return the classificatio and accurancy score.
-    Inputs: Model, X_test, y_test, Catgegory_names
+    Function to evaluate a model and return the classification report and accurancy score.
+    Inputs: Model, X_test, y_test
     Outputs: Prints the Classification report & Accuracy Score
     '''
     y_pred = model.predict(X_test)

@@ -21,6 +21,7 @@ def clean_data(df, sample_size):
     '''
     input:
     df: The merged dataset in previous step.
+    sample_size: Size of the sample needed
     output:
     df: Dataset after cleaning.
     '''
@@ -38,11 +39,22 @@ def clean_data(df, sample_size):
     return df_sam
 
 def save_data(df, database_filename, table_name):
+
+    '''
+    Input: 
+    df: dataset
+    database_filename: name of the file you want the database file to be created with
+    table_name: name of the table in the database for given dataset
+    '''
     
     engine = create_engine('sqlite:///' + database_filename)
     df.to_sql(table_name, engine, index=False)  
 
 def convertToLabel(rating) :
+    '''
+    Input: rating
+    output: label with respect to the rating value
+    '''
     if rating > 3 :
         return 'Positive'
     else :
