@@ -1,7 +1,7 @@
 # SentimentAnalysis
 
 
-## Prodblem statement
+## Problem statement
 
 Build a sentiment analysis model that classifies the input text as either Positive or Negative. The input would be reviews or feedbacks of users but can very well be extended to other kinds of text messages like social media posts or tweets. This is intended to be achieved by training our model on a dataset of already labeled Amazon product reviews.
 
